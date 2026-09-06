@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# 环境
+.env
+*.db
+*.sqlite3
+
+# 上传的题目图片
+uploads/
+
+# 编辑器
+.vscode/
+.idea/

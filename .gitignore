@@ -1,0 +1,23 @@
+# 顶层忽略
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.local
+*.db
+*.sqlite3
+.pytest_cache/
+.DS_Store
+uploads/
+
+# 隧道工具二进制与配置文件（不提交大文件/无关配置）
+*.exe
+cloudflared*.exe
+ngrok*.exe
+config.yml
+
+# Jupyter 产物
+.ipynb_checkpoints/
+*.ipynb

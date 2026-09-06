@@ -1,0 +1,25 @@
+# Render 蓝本：免费 Web Service 部署「数学学硕备考」
+# 使用项目根 Dockerfile（多阶段：构建前端 + 跑 FastAPI，同源托管）
+services:
+  - type: web
+    name: math-study
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: AUTH_ENABLED
+        value: "true"
+      - key: LLM_BASE_URL
+        value: https://api.deepseek.com
+      - key: LLM_MODEL
+        value: deepseek-v4-flash-vision-exp
+      - key: UPLOAD_DIR
+        value: uploads
+      # 下面几项请在 Render 控制台手动设置（secret），不要在仓库里填值
+      - key: DATABASE_URL      # Neon 的 postgresql:// 连接串
+        sync: false
+      - key: ACCESS_TOKEN      # 你的访问口令
+        sync: false
+      - key: LLM_API_KEY       # DeepSeek 密钥（图片提取）
+        sync: false
