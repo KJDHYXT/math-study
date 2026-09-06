@@ -1,0 +1,12 @@
+# VPS 上用 docker compose 部署（根目录的 Dockerfile：先构建前端，再跑 FastAPI，同源托管）
+# 私有值（DATABASE_URL / ACCESS_TOKEN / LLM_API_KEY）放在 VPS 上的 .env（不要提交仓库）
+services:
+  app:
+    build: .
+    image: math-study:latest
+    container_name: math-study
+    env_file:
+      - .env
+    ports:
+      - "80:8000"
+    restart: always
